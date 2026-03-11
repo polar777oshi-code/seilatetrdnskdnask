@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amo Minha Namorada Triz ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .heart-icon {
+            font-size: 2em;
+            display: inline-block;
+            margin: 0 10px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        .falling-hearts {
+            position: fixed;
+            font-size: 2em;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        p {
+            color: white;
+            font-size: 1.5em;
+            margin-top: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span class="heart-icon">❤️</span>
+            AMO MINHA NAMORADA TRIZ
+            <span class="heart-icon">❤️</span>
+        </h1>
+        <p>✨ Para a melhor namorada do mundo ✨</p>
+    </div>
+
+    <script>
+        // Criar corações caindo
+        function createFallingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'falling-hearts';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(createFallingHeart, 300);
+    </script>
+</body>
+</html>
